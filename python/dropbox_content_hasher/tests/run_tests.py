@@ -7,7 +7,7 @@ import os
 import six
 import sys
 
-from dropbox_content_hasher import DropboxContentHasher, StreamHasher
+from .dropbox_content_hasher import DropboxContentHasher, StreamHasher
 
 def reference_hasher(data):
     """

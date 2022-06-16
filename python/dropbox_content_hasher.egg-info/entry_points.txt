@@ -1,0 +1,3 @@
+[console_scripts]
+drophash = hash_file:main
+

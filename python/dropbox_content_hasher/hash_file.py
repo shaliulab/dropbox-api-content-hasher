@@ -4,7 +4,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import sys
 
-from dropbox_content_hasher import DropboxContentHasher
+from .dropbox_content_hasher import DropboxContentHasher
 
 def main():
     prog_name, args = sys.argv[0], sys.argv[1:]
@@ -14,6 +14,11 @@ def main():
 
     fn = args[0]
 
+    hexigest = hash_file(fn)
+    print(hexigest)
+
+
+def hash_file(fn):
     hasher = DropboxContentHasher()
     with open(fn, 'rb') as f:
         while True:
@@ -21,7 +26,9 @@ def main():
             if len(chunk) == 0:
                 break
             hasher.update(chunk)
-    print(hasher.hexdigest())
+
+    return hasher.hexdigest()
+
 
 if __name__ == '__main__':
     main()
